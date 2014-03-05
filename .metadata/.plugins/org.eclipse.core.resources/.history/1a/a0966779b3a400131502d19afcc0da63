@@ -1,5 +1,7 @@
 var mainWin = Ti.UI.createWindow({
 	backgroundColor: "blue",
+	height: "auto",
+	width: "audo"
 });
 
 require('ui');

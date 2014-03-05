@@ -16,8 +16,10 @@ var titleLabel = Ti.UI.createLabel({
 var profileView = Ti.UI.createView({
 	height: 200,
 	width: 200,
-	bottom: 10,
-	right: 10,
+	top: 70,
+	left: 10,
+	//bottom: 10,
+	//right: 10,
 	layout: "vertical"
 });
 var profileImage = Ti.UI.createImageView({
@@ -38,9 +40,7 @@ var nameLabel = Ti.UI.createLabel({
 	text: "Richard Pingree"
 });
 
-profileView.add(profileImage);
-profileView.add(nameLabel);
-profileView.add(courseLabel);
+profileView.add(profileImage, nameLabel, courseLabel);
 titleView.add(titleLabel);
 mainWin.add(profileView);
 mainWin.add(titleView);

@@ -16,8 +16,10 @@ var titleLabel = Ti.UI.createLabel({
 var profileView = Ti.UI.createView({
 	height: 200,
 	width: 200,
-	bottom: 10,
-	right: 10,
+	top: 70,
+	left: 10,
+	//bottom: 10,
+	//right: 10,
 	layout: "vertical"
 });
 var profileImage = Ti.UI.createImageView({

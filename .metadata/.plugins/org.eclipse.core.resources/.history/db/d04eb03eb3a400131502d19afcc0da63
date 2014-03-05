@@ -1,6 +1,9 @@
 /**
  * @author Richard Pingree
  */
+/**
+ * @author Richard Pingree
+ */
 var titleView = Ti.UI.createView({
 	top: 10,
 	left: 10,
@@ -38,9 +41,6 @@ var nameLabel = Ti.UI.createLabel({
 	text: "Richard Pingree"
 });
 
-profileView.add(profileImage);
-profileView.add(nameLabel);
-profileView.add(courseLabel);
+profileView.add(profileImage, nameLabel, courseLabel);
 titleView.add(titleLabel);
-mainWin.add(profileView);
-mainWin.add(titleView);
+mainWin.add(titleView, profileView);

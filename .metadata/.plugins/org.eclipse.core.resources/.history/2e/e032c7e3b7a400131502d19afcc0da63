@@ -38,9 +38,6 @@ var nameLabel = Ti.UI.createLabel({
 	text: "Richard Pingree"
 });
 
-profileView.add(profileImage);
-profileView.add(nameLabel);
-profileView.add(courseLabel);
+profileView.add(profileImage, nameLabel, courseLabel);
 titleView.add(titleLabel);
-mainWin.add(profileView);
-mainWin.add(titleView);
+mainWin.add(titleView, profileView);
