@@ -1,0 +1,25 @@
+/**
+ * @author Richard Pingree
+ */
+var titleView = Ti.UI.createView({
+	top: 20,
+	left: 20,
+	height: 100,
+	width: 200,
+});
+var titleLabel = Ti.UI.createLabel({
+	color: "White",
+	font: {fontSize: 25, fontFamily: "Times New Roman"},
+	text: "Sample Application for Demo Deployment."
+});
+
+var courseLabel = Ti.UI.createLabel({
+	
+});
+
+var nameLabel = Ti.UI.createLabel({
+	
+});
+
+titleView.add(titleLabel);
+mainWin.add(titleView);
