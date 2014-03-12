@@ -1,0 +1,24 @@
+// Main App Window
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "Blue"
+});
+
+var geoView = Ti.UI.createView({
+	backgroundColor: "Grey",
+	bottom: 15,
+	width: Ti.UI.SIZE,
+	height: 250
+});
+
+var takePicBtn = Ti.UI.createButton({
+	title: "Camera",
+	top: 20,
+	height: 60,
+	width: 250,
+	color: "white",
+	backgroundColor: "green"
+});
+require('geolocation');
+require('camera');
+mainWin.add(takePicBtn);
+mainWin.open();

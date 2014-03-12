@@ -1,0 +1,7 @@
+// Main App Window
+var mainWin = Ti.UI.createWindow({
+	backgroundColor: "Blue"
+});
+require('geolocation');
+
+mainWin.open();
