@@ -34405,3 +34405,13 @@ org.eclipse.core.runtime.AssertionFailedException: null argument:
 	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:636)
 	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:591)
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1450)
+
+!ENTRY org.eclipse.core.jobs 4 2 2014-03-12 21:13:14.380
+!MESSAGE An internal error occurred during: "Update iOS info".
+!STACK 0
+java.lang.ArrayIndexOutOfBoundsException: 1
+	at java.util.ArrayList.add(ArrayList.java:352)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator.detectXCode(IOSSDKLocator.java:342)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator.initialize(IOSSDKLocator.java:129)
+	at com.appcelerator.titanium.ios.core.IOSSDKLocator$4.run(IOSSDKLocator.java:255)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
