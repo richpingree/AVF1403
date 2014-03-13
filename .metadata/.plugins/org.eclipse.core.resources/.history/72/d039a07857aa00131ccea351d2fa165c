@@ -33,22 +33,12 @@ var mapBtn = Ti.UI.createButton({
 	height: 60,	
 	width: 250
 });
-var compassBtn = Ti.UI.createButton({
-	title: "Compass",
-	color: "white",
-	backgroundColor: "green",
-	borderRadius: 10,
-	top: 20,
-	height: 60,	
-	width: 250
-});
 
-require('compass');
+//require('compass');
 require('geolocation');
 require('camera');
 require('map');
 mainWin.add(picBtn);
 mainWin.add(geoBtn);
 mainWin.add(mapBtn);
-mainWin.add(compassBtn);
 mainWin.open();
