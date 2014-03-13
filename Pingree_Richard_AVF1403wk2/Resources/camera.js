@@ -8,6 +8,7 @@ var imgWin = Ti.UI.createWindow({
 
 var closeBtn = Ti.UI.createButton({
 	title: "Close",
+	color: "white",
 	backgroundColor: "red",
 	borderRadius: 10,
 	width: 150,
@@ -18,7 +19,7 @@ closeBtn.addEventListener('click', function(){
 	imgWin.close();
 });
 
-takePicBtn.addEventListener('click', function(e){
+picBtn.addEventListener('click', function(e){
 	Ti.Media.showCamera({
 		saveToPhotoGallery: true,
 		allowEditing: true,
