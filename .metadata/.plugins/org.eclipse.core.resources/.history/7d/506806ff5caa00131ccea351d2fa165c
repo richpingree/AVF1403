@@ -2,7 +2,7 @@
  * @author Richard Pingree
  */
 var geoWin = Ti.UI.createWindow({
-	backgroundColor: "blue",
+	backgroundColor: "Blue",
 	
 });
 var geoView = Ti.UI.createView({

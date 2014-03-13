@@ -43,10 +43,10 @@ var compassBtn = Ti.UI.createButton({
 	width: 250
 });
 
+require('compass');
 require('geolocation');
 require('camera');
 require('map');
-//require('compass');
 mainWin.add(picBtn);
 mainWin.add(geoBtn);
 mainWin.add(mapBtn);

@@ -31,10 +31,10 @@ closeBtn.addEventListener('click', function(){
 });
 
 var compass = Ti.Geolocation.getCurrentHeading(function(e){
-	var trueHeading = e.heading.trueHeading;
+	var trueHead = e.heading.trueHeading;
 	var compassLabel = Ti.UI.createLabel({
 		color: "white",
-		text: "Heading: " + trudHeading,
+		text: "Heading: " + trudHead,
 		height: Ti.UI.SIZE,
 		textAlign: "center",
 		font: {fontSize: 20, fontWeight: 'bold', fontFamily: 'Times New Roman'}
