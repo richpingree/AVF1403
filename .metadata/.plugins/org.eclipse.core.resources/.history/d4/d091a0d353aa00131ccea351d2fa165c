@@ -12,7 +12,10 @@ var appWin = function() {
 	
 	var geoData = function(title, latitude, longitude) {
 		this.title = title,
-		this.coords = {latitude: latitude, longitude: longitude};
+		this.coords = {
+			latitude: latitude,
+			longitude: longitude
+		};
 	};
 
 	var geocodeNative = function(address, callback) {
