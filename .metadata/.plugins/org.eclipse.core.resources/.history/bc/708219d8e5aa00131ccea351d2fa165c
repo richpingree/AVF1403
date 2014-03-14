@@ -6,7 +6,7 @@ var mainWin = Ti.UI.createWindow({
 
 var picBtn = Ti.UI.createButton({
 	title: "Camera",
-	color: "black",
+	color: "white",
 	backgroundColor: "green",
 	borderRadius: 10,
 	top: 100,
@@ -16,7 +16,7 @@ var picBtn = Ti.UI.createButton({
 
 var geoBtn = Ti.UI.createButton({
 	title: "Geolocation",
-	color: "black",
+	color: "white",
 	backgroundColor: "green",
 	borderRadius: 10,
 	top: 20,
@@ -24,9 +24,9 @@ var geoBtn = Ti.UI.createButton({
 	width: 250
 });
 
-var remoteBtn = Ti.UI.createButton({
-	title: "Remote Data",
-	color: "black",
+var mapBtn = Ti.UI.createButton({
+	title: "Map",
+	color: "white",
 	backgroundColor: "green",
 	borderRadius: 10,
 	top: 20,
@@ -35,7 +35,7 @@ var remoteBtn = Ti.UI.createButton({
 });
 var compassBtn = Ti.UI.createButton({
 	title: "Compass",
-	color: "black",
+	color: "white",
 	backgroundColor: "green",
 	borderRadius: 10,
 	top: 20,
@@ -45,11 +45,10 @@ var compassBtn = Ti.UI.createButton({
 
 require('geolocation');
 require('camera');
-//require('map');
-//require('compass');
-require('event');
+require('map');
+require('compass');
 mainWin.add(picBtn);
 mainWin.add(geoBtn);
-mainWin.add(remoteBtn);
+mainWin.add(mapBtn);
 mainWin.add(compassBtn);
 mainWin.open();

@@ -106,7 +106,6 @@ var appWin = function() {
 		view.add(button);
 		mapWin.add(view);
 		
-		return mapWin;
 	});
 	
 };

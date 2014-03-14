@@ -105,8 +105,8 @@ var appWin = function() {
 		view.add(textField);
 		view.add(button);
 		mapWin.add(view);
+		mapWin.open();
 		
-		return mapWin;
 	});
 	
 };
