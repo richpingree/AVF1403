@@ -32,7 +32,7 @@ var compass = function(){
 	if(Ti.Geolocation.hasCompass){
 		Ti.Geolocation.purpose = "GPS/Location required.";
 		Ti.Geolocation.showCalibration = false;
-		Ti.Geolocation.getCurrentHeading(function(e){
+		Ti.Geolocation.getCruuentHeading(function(e){
 			var trueHeading = e.heading.trueHeading;
 			var compassLabel = Ti.UI.createLabel({
 			color: "white",
