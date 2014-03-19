@@ -119,7 +119,7 @@ var priceInput = Ti.UI.createTextField({
 	top: 10
 });
 
-var saveBtn = Ti.UI.createButton({
+var saveBtn = createButton({
 	title: "Save",
 	backgroundColor: "green",
 	color: "black",
@@ -156,13 +156,13 @@ function getRowData(){
 		aisle = rows.fieldByName('aisleNumber');
 		price = rows.fieldByName('price');
 		
-		newEntry.push({
+		newData.push({
 			title: store + " " + product + " " + aisle  + " " + price,
 			id:id 
 		});
 		rows.next();
 	}
-	return newEntry;
+	return newData;
 };
 
 

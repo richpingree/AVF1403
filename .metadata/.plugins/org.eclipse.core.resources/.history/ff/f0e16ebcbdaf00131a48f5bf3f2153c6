@@ -119,7 +119,7 @@ var priceInput = Ti.UI.createTextField({
 	top: 10
 });
 
-var saveBtn = Ti.UI.createButton({
+var saveBtn = createButton({
 	title: "Save",
 	backgroundColor: "green",
 	color: "black",

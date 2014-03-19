@@ -157,7 +157,7 @@ function getRowData(){
 		price = rows.fieldByName('price');
 		
 		newEntry.push({
-			title: store + " " + product + " " + aisle  + " " + price,
+			title: store + "\n" + product + "\n" + aisle  + "\n" + price,
 			id:id 
 		});
 		rows.next();

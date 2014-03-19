@@ -119,7 +119,7 @@ var priceInput = Ti.UI.createTextField({
 	top: 10
 });
 
-var saveBtn = Ti.UI.createButton({
+var saveBtn = createButton({
 	title: "Save",
 	backgroundColor: "green",
 	color: "black",
@@ -148,7 +148,7 @@ function getRowData(){
 	
 	var rows = db.execute('SELECT * FROM groceryInfo');
 	while (rows.isValidRow()){
-		var id, store, product, aisle, price;
+		var id, store, product, aisle, price
 		
 		id = rows.fieldByName('id');
 		store = rows.fieldByName('storeName');
@@ -156,13 +156,13 @@ function getRowData(){
 		aisle = rows.fieldByName('aisleNumber');
 		price = rows.fieldByName('price');
 		
-		newEntry.push({
+		newData.push({
 			title: store + " " + product + " " + aisle  + " " + price,
 			id:id 
 		});
 		rows.next();
 	}
-	return newEntry;
+	return newData;
 };
 
 

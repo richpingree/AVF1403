@@ -119,7 +119,7 @@ var priceInput = Ti.UI.createTextField({
 	top: 10
 });
 
-var saveBtn = Ti.UI.createButton({
+var saveBtn = createButton({
 	title: "Save",
 	backgroundColor: "green",
 	color: "black",
@@ -129,44 +129,31 @@ var saveBtn = Ti.UI.createButton({
 	top: 10
 });
 
-var remoteSave = require('save');
-
 win1.add(storeLabel, storeInput, productLabel, productInput, aisleLabel, aisleInput, priceLabel, priceInput, saveBtn);
+// win1.add(storeInput);
+// win1.add(productLabel);
+// win1.add(productInput);
 
 
 // create controls tab and root window
 var win2 = Ti.UI.createWindow({  
-    title:'Grocery List',
+    title:'Tab 2',
     backgroundColor:'#fff'
 });
 var tab2 = Ti.UI.createTab({  
-    title:'Grocery List',
+    title:'Tab 2',
     window:win2
 });
-function getRowData(){
-	var newEntry = [];
-	
-	var rows = db.execute('SELECT * FROM groceryInfo');
-	while (rows.isValidRow()){
-		var id, store, product, aisle, price;
-		
-		id = rows.fieldByName('id');
-		store = rows.fieldByName('storeName');
-		product = rows.fieldByName('productName');
-		aisle = rows.fieldByName('aisleNumber');
-		price = rows.fieldByName('price');
-		
-		newEntry.push({
-			title: store + " " + product + " " + aisle  + " " + price,
-			id:id 
-		});
-		rows.next();
-	}
-	return newEntry;
-};
 
+var label2 = Ti.UI.createLabel({
+	color:'#999',
+	text:'I am Window 2',
+	font:{fontSize:20,fontFamily:'Helvetica Neue'},
+	textAlign:'center',
+	width:'auto'
+});
 
-win2.add(table);
+win2.add(label2);
 
 var win3 = Ti.UI.createWindow({
 	title:'Tab 3',
