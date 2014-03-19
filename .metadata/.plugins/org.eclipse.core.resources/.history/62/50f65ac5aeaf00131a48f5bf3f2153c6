@@ -1,0 +1,263 @@
+(function(){
+	var Cloud = require('ti.cloud');
+	Cloud.debug = true; //as we are in Development mode
+	
+	loginUser();
+	function loginUser(){
+		Cloud.user.login({
+			login: 'com.fullsail.demoApp',
+			password: '12345'	
+		}, function(e){
+			if(e.success){
+				var user = e.users[0];
+				Ti.API.info('Success:\n' +
+					'id: ' + user.id + '\n' +
+					'sessionId: ' + Cloud.sessionId + '\n' +
+					'firstName: ' + user.first_name + '\n' +
+					'lastName: ' + user.last_name);
+				loggedIn.text = "ACS login Successful. username: " + user.username + ", updated at: " + user.updated_at;
+			} else {
+				alert('Error:\n' +
+					((e.error && e.message) || JSON.stringify(e))
+				);
+			}
+	});
+};//loginUser
+//
+//
+//
+// GEO/Weather
+
+
+var win = Ti.UI.createWindow({
+	backgroundColor: "#ccc",
+	layout: "vertical"
+});
+
+var headingView = Ti.UI.createView({
+	width: "100%",
+	height: "5%",
+	backgroundColor: "#000"
+});
+
+var headingTxt = Ti.UI.createLabel({
+	color: "#fff",
+	text: "Weather Data",
+	height: Ti.UI.SIZE,
+	textAlign: "center",
+	verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	font: {
+		fontSize: "20sp",
+		fontWeight: "bold"
+	}
+});
+
+headingView.add(headingTxt);
+win.add(headingView);
+
+var btnView = Ti.UI.createView({
+	width: "100%",
+	height: "5%",
+});
+
+var getdataBtn = Ti.UI.createButton({
+	title: "Get Weather Data",
+	color: "#000",
+	width: "80%",
+	backgroundColor: "#ccc",
+	font: {
+		fontSize: "15sp",
+		fontWeight: "bold"
+	}
+});
+
+btnView.add(getdataBtn);
+win.add(btnView);
+
+
+
+
+function runCompass(){
+	
+	if (Ti.Geolocation.hasCompass) {
+		//alert("hasCompass");
+		Ti.Geolocation.showCalibration = false;
+		Ti.Geolocation.headingFilter = 90;
+		Ti.Geolocation.getCurrentHeading(function(e){
+			if (e.error){
+				currentHeading.text = "error: " + e.error;
+				return;
+			} else {
+				Ti.API.info("line 95:"+e);
+				var x = e.heading.x;
+				var y = e.heading.y;
+				var z = e.heading.z;
+				var magneticHeading = e.heading.magneticHeading;
+				var trueHeading = e.heading.trueHeading;
+				var timestamp = e.heading.timeStamp;
+				Ti.API.info("geo - heading: " + trueHeading);
+				currentHeading.text = "Current trueHeading: " + trueHeading;
+			}
+		});
+		Ti.Geolocation.addEventListener("heading", function(e){
+			//alert("heading changed");
+			var x = e.heading.x;
+			var y = e.heading.y;
+			var z = e.heading.z;
+			var magneticHeading = e.heading.magneticHeading;
+			var accuracy = e.heading.accuracy;
+			var trueHeading = e.heading.trueHeading;
+			var timeStamp = e.heading.timeStamp;
+			currentHeading.text = "Updated trueHeading: " + trueHeading;
+		});
+		
+	} else {
+		alert("No compass availabel on this device");
+	}
+	
+}; //runCompass
+
+
+
+var dataView = Ti.UI.createView({
+	width: "100%",
+	height: "50%",
+	backgroundColor: "#777",
+	layout: "vertical"
+});
+win.add(dataView);
+
+
+Ti.Geolocation.purpose = "Location will be used for Weather.";
+
+var refresh = function(){
+	
+	dataView.removeAllChildren();
+	Ti.Geolocation.getCurrentPosition(function(e){
+		var lat = e.coords.latitude;
+		var long = e.corrds.longitude;
+		var url = "http//api.wunderground.com/api/8a47fe0a727fc6f0/geolookup/forecast/q/" +lat+ "," +long+ ".json";
+		var xhrClient = Ti.Network.createHTTPClient();
+		xhrClient.open("GET", url);
+		xhrClient.send();
+		xhrClient.onload = function(){
+			Ti.API.info("xhr onload");
+			var json = JSON.parse(this.responseText);
+			var forecast = json.forecast;
+			var location = json.location;
+			dataView.add(Ti.UI.createLabel({
+				color: "#fff",
+				text: "Location: " + location.city,
+				height: Ti.UI.SIZE,
+				textAlign: "center",
+				verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+				font: {
+					fontSize: "20sp",
+					fontWeight: "bold"
+				}
+ 			}));
+ 			dataView.add(Ti.UI.createLabel({
+	 			color: "#fff",
+	 			text: "Temp (high): " + forecast.simpleforecast.forecastday[0].high.fahrenheit,
+	 			height: Ti.UI.SIZE,
+	 			textAlign: "center",
+	 			verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	 			font: {
+		 			fontSize: "15sp",
+		 			fontWeight: "bold"
+	 			}
+ 			}));
+ 			dataView.add(Ti.UI.createLabel({
+	 			color: "#fff",
+	 			text: "Temp (low): " + forecast.simpleforecast.forecastday[0].low.fahrenheit,
+	 			height: Ti.UI.SIZE,
+	 			textAlign: "center",
+	 			verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
+	 			font: {
+		 			fontSize: "15sp",
+		 			fontWeight: "bold"
+	 			}
+ 			}));
+ 			
+ 			//
+ 			//
+ 			//
+ 			//
+ 			var placeId = Ti.App.Properties.getString('PLACE_ID', '');
+ 			//every obj from ACS has an id, store the user's Place ID in Ti.App.Properties for later use
+ 			// returns empty string in not available
+ 			
+ 			//not available first time through?
+ 			if(!placeId){
+	 			Cloud.Places.create({
+		 			name: location.city,
+		 			latitude: lat,
+		 			longitude: long		
+	 			}, function(e){
+		 			if (e.success){
+			 			var place = e.places[0];
+			 			Ti.App.Properties.setString('PLACE_ID', place.id);
+			 			updateMap();
+		 			} else {
+			 			Ti.API.error(e.message);
+		 			}
+	 			});
+ 			} else {
+	 			Cloud.Places.update({
+		 			place_id: placeid,
+		 			name: location.city,
+		 			latitude: lat,
+		 			longitude: long,
+		 		}, function(e){
+			 		if(e.sucess) {
+				 		alert("position updated in the cloud!");
+				 		updateMap();
+			 		}else {
+				 		Ti.API.error(e.message);
+			 		}
+	 			});
+ 			}
+ 			
+ 			//
+ 			//
+ 			//
+ 			//map
+ 			var map = require('ti.map');
+ 			
+ 			var updateMap = function(e){
+ 			Cloud.Places.search({}, function(e){
+ 				if(e.success) {
+	 				var thePlaces =[];
+	 				//var routes ={};
+	 				for(var i=0; i < e.places.length; i++){
+		 				var thePlaces = e.places[i];
+		 				var annotations = Map.createAnnotaion({
+			 				latitude: thePlace.latitude,
+			 				longitude: ThePlace.longitude,
+			 				title: location.city,
+			 				pincolor: Map.ANNOTATION_RED,
+			 				animate: true
+		 				});
+		 				thePlaces.push(annotations);
+	 				}//for
+	 				var mapView = Map.createView({
+		 				mapType: Map.STANDARD_TYPE,
+		 				animate: true,
+		 				regionfit: true,
+		 				userlocation: true,
+		 				annotaions: ThePlaces
+	 				});
+	 				mapView.addEventListener('loading', function(e){
+		 				Ti.API.info('loading');
+	 				});
+	 				
+	 				mapView.setAnnotations(ThePlaces);
+	 				dataView.add(mapView);
+	 				
+ 				}else {
+	 				aler("Error: /n" + ((e.error && e.message) || JSON.stringify(e)));
+ 				}
+ 			}
+	//});
+//}
+//win.open();
