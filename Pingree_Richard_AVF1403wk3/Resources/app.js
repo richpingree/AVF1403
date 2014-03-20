@@ -1,28 +1,28 @@
-// (function() { 
-	// // load the Cloud Module
-	// var Cloud = require('ti.cloud');
-	// // set .debug property to 'true' as we are in Development mode
-	// Cloud.debug = true;
-	// var loginUser = function(){
-		// Cloud.Users.login({
-			// login: 'com.fullsail.demoApp',
-			// password: '12345'
-		// }, function(e){
-			// // use .info method to view login info in the Console, if successful
-			// if (e.success){
-				// var user = e.users[0];
-				// Ti.API.info('Success!\n' + 
-					// 'ACS User ID: ' + user.id + '\n' + 
-					// 'ACS App sessionId: ' + Cloud.sessionId + '\n' + 
-					// 'ACS App Username: ' + user.username);
-			// } else {
-				// alert((e.error && e.message) || JSON.stringify(e));
-			// }
-		// });
-	// }; // loginUser ends
-	// loginUser();
-	// // now your app is ready to access ACS network and data services
-// })();
+(function() { 
+	// load the Cloud Module
+	var Cloud = require('ti.cloud');
+	// set .debug property to 'true' as we are in Development mode
+	Cloud.debug = true;
+	var loginUser = function(){
+		Cloud.Users.login({
+			login: 'com.fullsail.demoApp',
+			password: '12345'
+		}, function(e){
+			// use .info method to view login info in the Console, if successful
+			if (e.success){
+				var user = e.users[0];
+				Ti.API.info('Success!\n' + 
+					'ACS User ID: ' + user.id + '\n' + 
+					'ACS App sessionId: ' + Cloud.sessionId + '\n' + 
+					'ACS App Username: ' + user.username);
+			} else {
+				alert((e.error && e.message) || JSON.stringify(e));
+			}
+		});
+	}; // loginUser ends
+	loginUser();
+	// now your app is ready to access ACS network and data services
+})();
 
 //Background Color
 Ti.UI.setBackgroundColor('#000');
@@ -34,7 +34,7 @@ data = getRowData();
 
 var table = Ti.UI.createTableView({
 	data:data
-})
+});
 
 // create tab group
 var tabGroup = Ti.UI.createTabGroup();
@@ -157,7 +157,7 @@ function getRowData(){
 		price = rows.fieldByName('price');
 		
 		newEntry.push({
-			title: store + " " + product + " " + aisle  + " " + price,
+			title: store + "		" + product + "		aisle:" + aisle  + "		$" + price,
 			id:id 
 		});
 		rows.next();
@@ -165,6 +165,7 @@ function getRowData(){
 	return newEntry;
 };
 
+require('edit');
 
 win2.add(table);
 
