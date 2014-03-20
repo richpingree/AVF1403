@@ -56,8 +56,6 @@
     <modules>
         <module deploy-type="development" platform="commonjs">ti.cloud</module>
         <module deploy-type="test" platform="commonjs">ti.cloud</module>
-        <module platform="iphone">ti.map</module>
-        <module platform="android">ti.map</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>
