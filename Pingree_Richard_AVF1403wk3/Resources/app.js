@@ -136,7 +136,15 @@ var saveBtn = Ti.UI.createButton({
 var remoteSave = require('save');
 require('cloud');
 
-win1.add(storeLabel, storeInput, productLabel, productInput, aisleLabel, aisleInput, priceLabel, priceInput, saveBtn);
+win1.add(storeLabel);
+win1.add(storeInput);
+win1.add(productLabel);
+win1.add(productInput);
+win1.add(aisleLabel);
+win1.add(aisleInput);
+win1.add(priceLabel);
+win1.add(priceInput);
+win1.add(saveBtn);
 
 
 // create controls tab and root window
