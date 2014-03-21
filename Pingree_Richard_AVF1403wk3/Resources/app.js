@@ -36,6 +36,10 @@ var table = Ti.UI.createTableView({
 	data:data
 });
 
+var table2 =Ti.UI.createTableView({
+	data:data
+});
+
 // create tab group
 var tabGroup = Ti.UI.createTabGroup();
 
@@ -130,6 +134,7 @@ var saveBtn = Ti.UI.createButton({
 });
 
 var remoteSave = require('save');
+require('cloud');
 
 win1.add(storeLabel, storeInput, productLabel, productInput, aisleLabel, aisleInput, priceLabel, priceInput, saveBtn);
 
@@ -170,14 +175,15 @@ require('edit');
 win2.add(table);
 
 var win3 = Ti.UI.createWindow({
-	title:'Tab 3',
+	title:'Cloud Storage',
 	backgroundColor:'#fff',
 });
 var tab3 = Ti.UI.createTab({
-	title:'Tab 3',
+	title:'Cloud Storage',
 	window:win3
 });
 
+win3.add(table2);
 
 
 //
