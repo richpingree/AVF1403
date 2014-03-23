@@ -2,13 +2,15 @@
 Android\ Emulator\ Process\:ConsoleLogLevel=Info
 Geocoder\:launchMode=run
 Geocoder\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.simulator.launchShortcut.titanium_2_WVGA854
-LAST_LAUNCH_TIMESTAMP=1395280141611
+LAST_LAUNCH_TIMESTAMP=1395591830370
 Pingree_Rich_AVF1401wk1\:launchMode=run
 Pingree_Rich_AVF1401wk1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.iphone.launchShortcut.iPhone Retina (3.5 inch)
 Pingree_Rich_AVF1403wk1\:launchMode=run
 Pingree_Rich_AVF1403wk1\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.iPad
 Pingree_Rich_testProject\:launchMode=run
 Pingree_Rich_testProject\:launchShortcut=com.appcelerator.titanium.mobile.ui.ios.simulator.ipad.launchShortcut.iPad
+Pingree_Richard_AVF1403\:launchMode=run
+Pingree_Richard_AVF1403\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.device.launchShortcut
 Pingree_Richard_AVF1403wk1\:launchMode=run
 Pingree_Richard_AVF1403wk1\:launchShortcut=com.appcelerator.titanium.mobile.ui.android.simulator.launchShortcut.titanium_2_WVGA854
 Pingree_Richard_AVF1403wk2\:launchMode=run
