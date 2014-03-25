@@ -17,6 +17,6 @@
 <booleanAttribute key="org.eclipse.debug.core.capture_output" value="true"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="true"/>
 <stringAttribute key="process_factory_id" value="com.appcelerator.titanium.ui.logLevelFilteringProcessFactory"/>
-<stringAttribute key="sdk_version" value="7.0.3"/>
+<stringAttribute key="sdk_version" value="7.1"/>
 <stringAttribute key="uuid" value="EDF98C0F-CDCE-4A8E-9789-1E2AD6A82B0B"/>
 </launchConfiguration>
