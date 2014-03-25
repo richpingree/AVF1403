@@ -152,7 +152,7 @@ function getRowData(){
 	return newEntry;
 };
 
-require('edit');
+//require('edit');
 
 win2.add(table);
 
