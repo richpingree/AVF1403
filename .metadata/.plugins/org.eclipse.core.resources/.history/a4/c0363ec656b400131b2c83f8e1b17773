@@ -72,12 +72,7 @@ var cancelBtn = Ti.UI.createButton({
 });
 
 
-editWin.add(productLabel);
-editWin.add(editProductInput);
-editWin.add(priceLabel);
-editWin.add(editPriceInput);
-editWin.add(saveBtn);
-editWin.add(cancelBtn);
+editWin.add(productLabel, editProductInput, priceLabel, editPriceInput, saveBtn, cancelBtn);
 
 table.addEventListener('click', function(e){
 	var id = e.rowData.id;
