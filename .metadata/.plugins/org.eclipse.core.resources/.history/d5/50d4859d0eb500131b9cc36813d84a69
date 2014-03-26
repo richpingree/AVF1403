@@ -114,7 +114,7 @@ picBtn = Ti.UI.createButton({
 	backgroundColor: 'green'
 });
 require('camera');
-require('save');
+var remoteSave = require('save');
 require('cloud');
 
 win1.add(productLabel);

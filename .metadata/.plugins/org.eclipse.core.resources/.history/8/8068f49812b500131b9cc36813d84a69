@@ -27,7 +27,7 @@ var remoteResponse = function(){
 		console.log();
 	};
 	sections.push(tableSecs);
-	table3.setData(sections);
+	table.setData(sections);
 	
 //console calls for test
 	Ti.API.debug(testTitle);
