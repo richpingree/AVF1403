@@ -40,9 +40,6 @@ var table2 =Ti.UI.createTableView({
 	data:data
 });
 
-var table3 =  Ti.UI.createTableView({	
-});
-
 // create tab group
 var tabGroup = Ti.UI.createTabGroup();
 
@@ -182,9 +179,6 @@ var tab4 = Ti.UI.createTab({
 	backgroundColor: '#025',
 	window:win4
 });
-require('remote');
-
-win4.add(table3);
 
 //
 //  add tabs

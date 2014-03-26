@@ -182,9 +182,9 @@ var tab4 = Ti.UI.createTab({
 	backgroundColor: '#025',
 	window:win4
 });
-require('remote');
+//require('remote');
 
-win4.add(table3);
+//win4.add(table3);
 
 //
 //  add tabs
