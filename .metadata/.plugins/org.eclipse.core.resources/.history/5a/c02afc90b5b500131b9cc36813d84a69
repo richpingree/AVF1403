@@ -195,8 +195,10 @@ table3.addEventListener("click", function(e){
 	var remoteData = Ti.UI.createImageView({
 		image: e.source.image,
 		top: 50,
-		height: 200,
-		width: 200
+		//height: 200,
+		//width: 200
+		height: Ti.UI.SIZE,
+		width: Ti.UI.SIZE
 	});
 	
 	var remoteData1 = Ti.UI.createLabel({

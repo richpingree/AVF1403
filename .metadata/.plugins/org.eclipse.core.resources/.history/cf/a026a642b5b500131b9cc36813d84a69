@@ -206,7 +206,7 @@ table3.addEventListener("click", function(e){
 		text: "Ingredents: " + e.source.state, 
 		textAlign: "center",
 		height: 100,
-		width: Ti.UI.SIZE
+		width: "auto"
 	});
 	
 	win5.add(remoteData);

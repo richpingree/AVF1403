@@ -41,6 +41,7 @@ var remoteError = function(e){
 	Ti.API.debug("Text: " + this.responseText);
 	Ti.API.debug("Error: " + e.error);
 	
+	
 };
 var xhr = Ti.Network.createHTTPClient({
 

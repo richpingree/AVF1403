@@ -185,18 +185,17 @@ var tab4 = Ti.UI.createTab({
 
 require('remote');
 
-table3.addEventListener("click", function(e){
-	var win5 = Ti.UI.createWindow({
+var event = table3.addEventListener("click", function(e){
+	var newWin = Ti.UI.createWindow({
 		backgroundColor: "blue",
-		layout: 'vertical',
 		title: e.source.title
 	});
 
 	var remoteData = Ti.UI.createImageView({
 		image: e.source.image,
 		top: 50,
-		height: 200,
-		width: 200
+		height: 100,
+		width: 100
 	});
 	
 	var remoteData1 = Ti.UI.createLabel({
@@ -206,7 +205,7 @@ table3.addEventListener("click", function(e){
 		text: "Ingredents: " + e.source.state, 
 		textAlign: "center",
 		height: 100,
-		width: Ti.UI.SIZE
+		width: "auto"
 	});
 	
 	win5.add(remoteData);
