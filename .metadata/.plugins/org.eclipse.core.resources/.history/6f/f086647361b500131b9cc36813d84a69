@@ -182,36 +182,8 @@ var tab4 = Ti.UI.createTab({
 	backgroundColor: '#025',
 	window:win4
 });
-
 require('remote');
 
-var event = table.addEventListener("click", function(e){
-	var newWin = Ti.UI.createWindow({
-		backgroundColor: "blue",
-		title: e.source.title
-	});
-
-	var remoteData = Ti.UI.createImageView({
-		image: e.source.image,
-		top: 50,
-		height: 100,
-		width: 100
-	});
-	
-	var remoteData1 = Ti.UI.createLabel({
-		top: 10,
-		font: {fontSize: 15, fontFamily: "Times New Roman"},
-		backgroundColor: "white",
-		text: "Ingredents: " + e.source.state, 
-		textAlign: "center",
-		height: 100,
-		width: "auto"
-	});
-	
-	win5.add(remoteData);
-	win5.add(remoteData1);
-	win5.open();
-});	
 win4.add(table3);
 
 //
@@ -220,7 +192,7 @@ win4.add(table3);
 tabGroup.addTab(tab1);  
 tabGroup.addTab(tab2);
 tabGroup.addTab(tab3); 
-tabGroup.addTab(tab4);
+tabGroup.addTab(tab4); 
 
 
 // open tab group

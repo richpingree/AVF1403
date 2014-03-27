@@ -208,9 +208,9 @@ var event = table.addEventListener("click", function(e){
 		width: "auto"
 	});
 	
+	win5.add(titleLabel);
 	win5.add(remoteData);
 	win5.add(remoteData1);
-	win5.open();
 });	
 win4.add(table3);
 

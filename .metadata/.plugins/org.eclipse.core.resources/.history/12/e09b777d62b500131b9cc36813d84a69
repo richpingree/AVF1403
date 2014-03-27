@@ -11,7 +11,7 @@ var remoteResponse = function(){
 //console test for success	
 	var testTitle = remotejson.results[0].title;
 	var testIngred = remotejson.results[0].ingredients;
-	var testPic = remotejson.results[0].thumbnail;
+	var testPic = remotejson.results[0].thumbnail
 
 	
 //creates table sections and rows

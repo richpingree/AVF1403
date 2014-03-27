@@ -11,7 +11,6 @@ var remoteResponse = function(){
 //console test for success	
 	var testTitle = remotejson.results[0].title;
 	var testIngred = remotejson.results[0].ingredients;
-	var testPic = remotejson.results[0].thumbnail;
 
 	
 //creates table sections and rows
@@ -23,7 +22,6 @@ var remoteResponse = function(){
 		var theRow = Ti.UI.createTableViewRow({
 			title: remotejson.results[i].title,
 			state: remotejson.results[i].ingredients,
-			image: remotejson.results[i].thumbnail,
 		});
 		tableSecs.add(theRow);
 		console.log();
